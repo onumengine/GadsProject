@@ -31,7 +31,7 @@ public class LeadersRecyclerAdapter extends RecyclerView.Adapter<LeadersRecycler
     @Override
     public void onBindViewHolder(@NonNull LeadersRecyclerViewHolder holder, int position)
     {
-        holder.badgeImage.setImageURI(Uri.parse(userInfoArrayList.get(position).getBadgeUrl()));
+        holder.displayImage(userInfoArrayList.get(position).getBadgeUrl());
         holder.nameTextView.setText(userInfoArrayList.get(position).getUserName());
         holder.detailTextView.setText(userInfoArrayList.get(position).getUserDetail());
     }
