@@ -1,12 +1,13 @@
 package com.example.gadsproject;
 
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.gadsproject.models.UserInfo;
 
 import java.util.ArrayList;
 

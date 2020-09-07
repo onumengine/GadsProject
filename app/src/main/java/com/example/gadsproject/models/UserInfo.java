@@ -1,4 +1,4 @@
-package com.example.gadsproject;
+package com.example.gadsproject.models;
 
 public class UserInfo
 {
