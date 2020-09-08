@@ -1,4 +1,4 @@
-package com.example.gadsproject.controllers;
+package com.example.gadsproject.recyclerviewUtil;
 
 import android.view.View;
 import android.widget.ImageView;

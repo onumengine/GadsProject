@@ -1,6 +1,7 @@
 package com.example.gadsproject.views;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -10,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 
 import com.example.gadsproject.R;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setAdapter(adapter);
+        TabLayout tabLayout = findViewById(R.id.tablayout);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     private class ViewPagerAdapter extends FragmentPagerAdapter
@@ -36,7 +40,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public Fragment getItem(int position)
         {
-            switch (position) {
+            switch (position)
+            {
                 case 0:
                     return new LearningLeadersFragment();
                 case 1:
@@ -49,6 +54,21 @@ public class MainActivity extends AppCompatActivity
         public int getCount()
         {
             return 2;
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position)
+        {
+            switch (position)
+            {
+                case 0:
+                    return getText(R.string.learning_leaders);
+                case 1:
+                    return getText(R.string.skill_iq_leaders);
+                default:
+                    return null;
+            }
         }
     }
 }

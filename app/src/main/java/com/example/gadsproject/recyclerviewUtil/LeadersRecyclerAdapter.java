@@ -1,4 +1,4 @@
-package com.example.gadsproject.controllers;
+package com.example.gadsproject.recyclerviewUtil;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,15 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gadsproject.R;
-import com.example.gadsproject.models.UserInfo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class LeadersRecyclerAdapter extends RecyclerView.Adapter<LeadersRecyclerViewHolder>
 {
-    private ArrayList<UserInfo> userInfoArrayList;
+    private ArrayList userInfoArrayList;
 
-    public LeadersRecyclerAdapter(ArrayList<UserInfo> userInfoArray)
+    public LeadersRecyclerAdapter(ArrayList userInfoArray)
     {
         this.userInfoArrayList = userInfoArray;
     }
@@ -33,9 +34,10 @@ public class LeadersRecyclerAdapter extends RecyclerView.Adapter<LeadersRecycler
     @Override
     public void onBindViewHolder(@NonNull LeadersRecyclerViewHolder holder, int position)
     {
-        holder.displayImage(userInfoArrayList.get(position).getBadgeUrl());
-        holder.nameTextView.setText(userInfoArrayList.get(position).getUserName());
-        holder.detailTextView.setText(userInfoArrayList.get(position).getUserDetail());
+        HashMap<String, String> userInfo = (HashMap<String, String>) userInfoArrayList.get(position);
+        holder.nameTextView.setText(userInfo.get("name"));
+        holder.detailTextView.setText(userInfo.get("hours"));
+        holder.displayImage(userInfo.get("badgeUrl"));
     }
 
     @Override
