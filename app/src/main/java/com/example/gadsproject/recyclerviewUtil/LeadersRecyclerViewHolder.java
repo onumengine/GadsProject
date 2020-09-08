@@ -13,19 +13,22 @@ import com.example.gadsproject.R;
 
 public class LeadersRecyclerViewHolder extends RecyclerView.ViewHolder
 {
-    public ImageView badgeImage = itemView.findViewById(R.id.badge_image);
-    public TextView nameTextView = itemView.findViewById(R.id.name_textview);
-    public TextView detailTextView = itemView.findViewById(R.id.detail_textview);
+    public ImageView badgeImage;
+    public TextView nameTextView;
+    public TextView hoursTextView;
 
     public LeadersRecyclerViewHolder(@NonNull View itemView)
     {
         super(itemView);
+        nameTextView = itemView.findViewById(R.id.name_textview);
+        hoursTextView = itemView.findViewById(R.id.detail_textview);
+        badgeImage = itemView.findViewById(R.id.badge_image);
     }
 
-    public void displayImage(@NonNull String url)
+    public void displayImage(@NonNull String imageUrl)
     {
         Glide.with(itemView)
-                .load(url)
+                .load(imageUrl)
                 .centerCrop()
                 .placeholder(R.drawable.ic_placeholder_image_24)
                 .error(R.drawable.ic_broken_image_24)

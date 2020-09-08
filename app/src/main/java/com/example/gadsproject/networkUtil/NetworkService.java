@@ -13,7 +13,7 @@ import retrofit2.http.Url;
 public interface NetworkService
 {
     @GET("api/hours")
-    Call<ArrayList> getTopLearners();
+    Call<List<HashMap>> getTopLearners();
 
 
     @GET("api/skilliq")

@@ -7,8 +7,8 @@
     tools:context=".views.LearningLeadersFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/learning_leaders_recyclerview"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

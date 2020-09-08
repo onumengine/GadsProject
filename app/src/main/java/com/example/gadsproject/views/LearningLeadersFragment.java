@@ -2,6 +2,8 @@ package com.example.gadsproject.views;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +19,7 @@ import com.example.gadsproject.networkUtil.NetworkService;
 import com.example.gadsproject.networkUtil.ServiceBuilder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -27,33 +30,41 @@ import retrofit2.Response;
 public class LearningLeadersFragment extends Fragment
 {
     public RecyclerView recyclerView;
+    private LinearLayoutManager layoutManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.fragment_learning_leaders, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.learning_leaders_recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        return view;
+        return inflater.inflate(R.layout.fragment_learning_leaders, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
+    {
+        recyclerView = view.findViewById(R.id.recyclerView);
+        layoutManager = new LinearLayoutManager(view.getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        makeApiCall();
     }
 
     private void makeApiCall()
     {
         NetworkService networkService = ServiceBuilder.buildService(NetworkService.class);
-        Call<ArrayList> call = networkService.getTopLearners();
-        call.enqueue(new Callback<ArrayList>()
+        Call<List<HashMap>> call = networkService.getTopLearners();
+
+        call.enqueue(new Callback<List<HashMap>>()
         {
             @Override
-            public void onResponse(Call<ArrayList> call, Response<ArrayList> response)
+            public void onResponse(Call<List<HashMap>> call, Response<List<HashMap>> response)
             {
                 recyclerView.setAdapter(new LeadersRecyclerAdapter(response.body()));
             }
 
             @Override
-            public void onFailure(Call<ArrayList> call, Throwable throwable)
+            public void onFailure(Call<List<HashMap>> call, Throwable throwable)
             {
-                Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), throwable.getMessage().toString(), Toast.LENGTH_LONG).show();
             }
         });
     }
