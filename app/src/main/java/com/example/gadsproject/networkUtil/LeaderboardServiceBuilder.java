@@ -5,7 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ServiceBuilder
+public class LeaderboardServiceBuilder
 {
     private static final String URL = "https://gadsapi.herokuapp.com/";
 

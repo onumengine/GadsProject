@@ -27,7 +27,6 @@ public class IqRecyclerViewHolder extends RecyclerView.ViewHolder
     {
         Glide.with(itemView)
                 .load(imageUrl)
-                .centerCrop()
                 .placeholder(null)
                 .into(badgeImageView);
     }

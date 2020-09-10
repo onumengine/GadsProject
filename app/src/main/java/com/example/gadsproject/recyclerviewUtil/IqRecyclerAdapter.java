@@ -33,7 +33,7 @@ public class IqRecyclerAdapter extends RecyclerView.Adapter<IqRecyclerViewHolder
     public void onBindViewHolder(@NonNull IqRecyclerViewHolder holder, int position)
     {
         holder.nameTextView.setText(adapterDataSource.get(position).get("name").toString());
-        holder.scoreTextView.setText(adapterDataSource.get(position).get("score").toString());
+        holder.scoreTextView.setText(adapterDataSource.get(position).get("score").toString() + " skill IQ score, " + adapterDataSource.get(position).get("country").toString());
         holder.loadImage(adapterDataSource.get(position).get("badgeUrl").toString());
     }
 

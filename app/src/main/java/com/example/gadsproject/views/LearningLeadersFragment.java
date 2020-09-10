@@ -15,10 +15,9 @@ import android.widget.Toast;
 
 import com.example.gadsproject.R;
 import com.example.gadsproject.recyclerviewUtil.LeadersRecyclerAdapter;
-import com.example.gadsproject.networkUtil.NetworkService;
-import com.example.gadsproject.networkUtil.ServiceBuilder;
+import com.example.gadsproject.networkUtil.LeaderboardService;
+import com.example.gadsproject.networkUtil.LeaderboardServiceBuilder;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -50,8 +49,8 @@ public class LearningLeadersFragment extends Fragment
 
     private void makeApiCall()
     {
-        NetworkService networkService = ServiceBuilder.buildService(NetworkService.class);
-        Call<List<HashMap>> call = networkService.getTopLearners();
+        LeaderboardService leaderboardService = LeaderboardServiceBuilder.buildService(LeaderboardService.class);
+        Call<List<HashMap>> call = leaderboardService.getTopLearners();
 
         call.enqueue(new Callback<List<HashMap>>()
         {

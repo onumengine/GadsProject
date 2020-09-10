@@ -13,8 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.gadsproject.R;
-import com.example.gadsproject.networkUtil.NetworkService;
-import com.example.gadsproject.networkUtil.ServiceBuilder;
+import com.example.gadsproject.networkUtil.LeaderboardService;
+import com.example.gadsproject.networkUtil.LeaderboardServiceBuilder;
 import com.example.gadsproject.recyclerviewUtil.IqRecyclerAdapter;
 
 import java.util.HashMap;
@@ -48,8 +48,8 @@ public class IQLeadersFragment extends Fragment
 
     private void sendHttpRequest()
     {
-        NetworkService networkService = ServiceBuilder.buildService(NetworkService.class);
-        Call<List<HashMap>> call = networkService.getTopScorers();
+        LeaderboardService leaderboardService = LeaderboardServiceBuilder.buildService(LeaderboardService.class);
+        Call<List<HashMap>> call = leaderboardService.getTopScorers();
 
         call.enqueue(new Callback<List<HashMap>>()
         {

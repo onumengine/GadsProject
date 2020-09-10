@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity
 
     private void goToMainActivity()
     {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, LeaderboardActivity.class));
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
     }
