@@ -21,11 +21,10 @@
         <activity
             android:name=".views.SubmitActivity"
             android:parentActivityName=".views.MainActivity"
-            android:theme="@style/Theme.AppCompat" />
-        <activity android:name=".views.MainActivity"
-            android:label="@string/leaderboard_all_caps"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
+            android:theme="@style/Theme.AppCompat"/>
+        <activity
+            android:name=".views.MainActivity"
+            android:label="@string/leaderboard_all_caps"/>
 
         <meta-data
             android:name="preloaded_fonts"
